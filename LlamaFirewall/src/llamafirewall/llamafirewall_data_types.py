@@ -17,6 +17,7 @@ class ScannerType(Enum):
     HIDDEN_ASCII = "hidden_ascii"
     PII_DETECTION = "pii_detection"
     REGEX = "regex"
+    JWT = "jwt"
 
 
 class ScanDecision(Enum):
