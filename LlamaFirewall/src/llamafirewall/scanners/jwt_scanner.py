@@ -24,14 +24,14 @@ class JWTScanner(Scanner):
     def __init__(
         self,
         scanner_name: str = "JWT Scanner",
-        config,
+        config=None,
         block_threshold: float = 1.0
     ):
         # Call parent initializer with required parameters
         super().__init__(scanner_name, block_threshold)
-        self.secret_key = config.get("secret_key", "")
-        self.algorithms = config.get("algorithms", ["HS256"])
-        self.required_claims = config.get("required_claims", [])
+        self.secret_key = os.getenv("JWT_SECRET_KEY", "DEFAULT_SECRET")
+        self.algorithms = ["HS256"]
+        self.required_claims = ["user_id", "exp"]
         self.extracted_claims: Dict[str, Any] = {}  # Stores validated claims for RAG
 
     async def scan(

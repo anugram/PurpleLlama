@@ -80,7 +80,7 @@ def create_scanner(scanner_type: ScannerType | str) -> Scanner:
         elif scanner_type == ScannerType.JWT:
             from .scanners.jwt_scanner import JWTScanner
 
-            return JWTScanner(config or {})
+            return JWTScanner()
         else:
             raise ValueError(
                 f"[LlamaFirewall] Unsupported scanner type: {scanner_type}"
