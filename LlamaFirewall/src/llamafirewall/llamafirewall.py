@@ -79,6 +79,7 @@ def create_scanner(scanner_type: ScannerType | str) -> Scanner:
             return RegexScanner()
         elif scanner_type == ScannerType.JWT:
             from .scanners.jwt_scanner import JWTScanner
+            
             return JWTScanner()
         else:
             raise ValueError(

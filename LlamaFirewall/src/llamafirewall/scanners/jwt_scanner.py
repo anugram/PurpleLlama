@@ -23,16 +23,14 @@ class JWTScanner(Scanner):
 
     def __init__(
         self,
+        scanner_name: str = "JWT Scanner",
         secret_key: str,
         algorithms: List[str] = ["HS256"],
         required_claims: Optional[List[str]] = None,
         block_threshold: float = 1.0
     ):
         # Call parent initializer with required parameters
-        super().__init__(
-            scanner_name="JWT Scanner",  # Fixed scanner name
-            block_threshold=block_threshold
-        )
+        super().__init__(scanner_name, block_threshold)
         self.secret_key = secret_key
         self.algorithms = algorithms
         self.required_claims = required_claims or []
