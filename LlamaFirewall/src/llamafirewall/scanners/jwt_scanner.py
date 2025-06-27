@@ -48,7 +48,12 @@ class JWTScanner(Scanner):
         Returns:
             ScanResult: The result of the scan
         """
-        token = self._extract_jwt(message)
+        if hasattr(message, "content"):
+            input_data = message.content
+        else:
+            input_data = message
+
+        token = self._extract_jwt(input_data)
         if not token:
             return ScanResult(decision=ScanDecision.ALLOW, reason="No JWT found")
         
