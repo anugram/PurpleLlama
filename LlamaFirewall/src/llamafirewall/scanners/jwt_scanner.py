@@ -3,6 +3,7 @@
 # pyre-strict
 import jwt
 import re
+import os
 from datetime import datetime
 from typing import Optional
 from .base_scanner import Scanner
